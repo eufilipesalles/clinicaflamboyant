@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Área do Paciente | Clínica Flamboyant</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#40381B">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/area.css">
+</head>
+<body>
+<div class="area">
+  <header class="area-topo">
+    <div class="wrap area-topo__inner">
+      <a href="/" aria-label="Voltar ao site da Clínica Flamboyant"><img src="/assets/img/marca/logo-horizontal.png" alt="Clínica Flamboyant" width="295" height="84"></a>
+      <div class="area-topo__dir oculto" id="topo-logado">
+        <span id="topo-nome"></span>
+        <button class="btn-link" type="button" id="btn-sair">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="area-main" id="conteudo">
+
+    <!-- LOGIN -->
+    <section class="acesso" id="tela-login">
+      <img class="acesso__flor" src="/assets/img/marca/flor-terra.svg" alt="" aria-hidden="true">
+      <h1>Área do Paciente</h1>
+      <p>Acesse as orientações em vídeo preparadas pela nossa equipe para o seu tratamento.</p>
+      <div class="aviso aviso--erro oculto" id="login-erro" role="alert"></div>
+      <form id="form-login" novalidate>
+        <div class="campo">
+          <label for="login-cpf">CPF</label>
+          <input id="login-cpf" name="cpf" inputmode="numeric" autocomplete="username" placeholder="000.000.000-00" maxlength="14" required>
+        </div>
+        <div class="campo">
+          <label for="login-senha">Senha</label>
+          <div class="senha-wrap">
+            <input id="login-senha" name="senha" type="password" autocomplete="current-password" required>
+            <button type="button" data-ver-senha="login-senha" aria-label="Mostrar senha"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+          </div>
+        </div>
+        <button class="btn btn--primario" type="submit" id="btn-entrar">Entrar</button>
+      </form>
+      <div class="acesso__ajuda">Esqueceu a senha ou ainda não recebeu seu acesso?<br><a href="https://wa.me/5555996776740?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20o%20acesso%20%C3%A0%20%C3%81rea%20do%20Paciente." target="_blank" rel="noopener">Fale com a clínica pelo WhatsApp</a></div>
+    </section>
+
+    <!-- TROCA DE SENHA (primeiro acesso) -->
+    <section class="acesso oculto" id="tela-senha">
+      <img class="acesso__flor" src="/assets/img/marca/flor-terra.svg" alt="" aria-hidden="true">
+      <h1>Crie a sua senha</h1>
+      <p>Por segurança, troque a senha que você recebeu da clínica por uma senha só sua.</p>
+      <div class="aviso aviso--erro oculto" id="senha-erro" role="alert"></div>
+      <form id="form-senha" novalidate>
+        <div class="campo">
+          <label for="nova-senha">Nova senha</label>
+          <div class="senha-wrap">
+            <input id="nova-senha" type="password" autocomplete="new-password" minlength="8" required>
+            <button type="button" data-ver-senha="nova-senha" aria-label="Mostrar senha"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+          </div>
+          <small>Mínimo de 8 caracteres, com letras e números.</small>
+        </div>
+        <div class="campo">
+          <label for="nova-senha-2">Repita a nova senha</label>
+          <input id="nova-senha-2" type="password" autocomplete="new-password" minlength="8" required>
+        </div>
+        <button class="btn btn--primario" type="submit" id="btn-salvar-senha">Salvar senha</button>
+      </form>
+    </section>
+
+    <!-- TERMOS (LGPD) -->
+    <section class="acesso oculto" id="tela-termos">
+      <img class="acesso__flor" src="/assets/img/marca/flor-terra.svg" alt="" aria-hidden="true">
+      <h1>Termo de uso</h1>
+      <p>Antes de começar, leia e aceite as condições de uso da Área do Paciente.</p>
+      <div class="termos-texto" tabindex="0">
+        <p><strong>1. Finalidade.</strong> A Área do Paciente disponibiliza orientações em vídeo sobre os cuidados pré-operatórios, transoperatórios e pós-operatórios do seu tratamento na Clínica Flamboyant. O conteúdo é complementar e não substitui as orientações individuais da equipe.</p>
+        <p><strong>2. Acesso pessoal.</strong> O acesso é pessoal e intransferível. Não compartilhe sua senha. Os vídeos são de uso exclusivo do paciente e não podem ser baixados, gravados, copiados ou divulgados.</p>
+        <p><strong>3. Seus dados.</strong> Utilizamos seu nome, CPF, telefone, procedimento e o registro dos vídeos assistidos apenas para liberar o acesso e acompanhar o seu tratamento, conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018). Você pode solicitar a qualquer momento a correção ou a exclusão dos seus dados pelo WhatsApp da clínica.</p>
+        <p><strong>4. Dúvidas e emergências.</strong> Em caso de dúvidas, fale com a equipe. Em situações de urgência, procure atendimento médico imediato.</p>
+        <p>[TEXTO A SER REVISADO PELA CLÍNICA E PELO JURÍDICO]</p>
+      </div>
+      <label class="check"><input type="checkbox" id="aceite"> Li e aceito o termo de uso e a forma de tratamento dos meus dados.</label>
+      <div class="aviso aviso--erro oculto" id="termos-erro" role="alert"></div>
+      <button class="btn btn--primario" type="button" id="btn-aceitar">Continuar</button>
+    </section>
+
+    <!-- PAINEL -->
+    <section class="painel-pac oculto" id="tela-painel">
+      <div class="boas-vindas">
+        <div>
+          <div class="eyebrow">Área do Paciente</div>
+          <h1 id="ola">Olá</h1>
+        </div>
+      </div>
+      <div class="proc-seletor" id="proc-seletor"></div>
+      <div class="proc-card" id="proc-card"></div>
+      <div class="abas" role="tablist" aria-label="Fases do tratamento" id="abas"></div>
+      <p class="fase-intro" id="fase-intro"></p>
+      <div class="lista-videos" id="lista-videos"></div>
+      <div class="contato-equipe">
+        <p>Ficou com alguma dúvida sobre os cuidados? A nossa equipe está à disposição.</p>
+        <a class="btn btn--primario" href="https://wa.me/5555996776740?text=Ol%C3%A1!%20Sou%20paciente%20e%20tenho%20uma%20d%C3%BAvida%20sobre%20os%20cuidados." target="_blank" rel="noopener">Falar com a equipe</a>
+      </div>
+    </section>
+
+    <!-- CARREGANDO -->
+    <div class="acesso oculto" id="tela-carregando" aria-live="polite"><p style="margin:0">Carregando…</p></div>
+  </main>
+
+  <footer class="area-rodape">Clínica Flamboyant · Saúde e Performance · Conteúdo exclusivo para pacientes. Proibida a reprodução.</footer>
+</div>
+
+<!-- PLAYER PROTEGIDO -->
+<div class="player-modal oculto" id="player-modal" role="dialog" aria-modal="true" aria-labelledby="player-titulo">
+  <div class="player-caixa">
+    <div class="player-topo">
+      <h2 id="player-titulo"></h2>
+      <button class="player-fechar" type="button" id="player-fechar" aria-label="Fechar vídeo">×</button>
+    </div>
+    <div class="player" id="player">
+      <div class="player-carregando" id="player-carregando">Carregando vídeo…</div>
+      <video id="player-video" controls playsinline preload="metadata" controlslist="nodownload noplaybackrate noremoteplayback nofullscreen" disablepictureinpicture disableremoteplayback></video>
+      <div class="marca-dagua marca-dagua--fixa" id="marca-fixa" aria-hidden="true"></div>
+      <div class="marca-dagua" id="marca-movel" aria-hidden="true"></div>
+      <button class="player-tela-cheia" type="button" id="player-tela-cheia" aria-label="Tela cheia"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M16 21h3a2 2 0 0 0 2-2v-3"></path></svg></button>
+    </div>
+    <p class="player-desc" id="player-desc"></p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="/assets/js/supabase-config.js"></script>
+<script src="/assets/js/area-comum.js"></script>
+<script src="/assets/js/paciente.js"></script>
+</body>
+</html>

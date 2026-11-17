@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /area-do-paciente
+
+Sitemap: https://www.clinicaflamboyant.com/sitemap.xml

@@ -35,6 +35,14 @@
 - **Limite honesto:** nenhum site impede a gravação da tela. A marca d'água identifica quem vazou.
 - Páginas fora do Google (`noindex`) e sem cache.
 
+## Ambiente em produção
+
+- **Projeto Supabase:** `Clinica Flamboyant - Area do Paciente` (ref `dazmopskngifddlhpnif`, região São Paulo `sa-east-1`)
+- **Migrações aplicadas:** `0001_area_do_paciente.sql` e `0002_funcoes_de_acesso_privadas.sql`
+- **Edge Function:** `admin-pacientes` (versão 1, verificação de JWT ativa)
+- **Administradora:** Simone Barreiro, login `simone@clinicaflamboyant.com` (trocar a senha inicial no primeiro acesso)
+- **Teste das regras de acesso (24/11/2026):** paciente vê só os próprios dados e vídeos; paciente bloqueado e visitante sem login não veem nada; administração vê tudo.
+
 ## Implantação
 
 1. **Projeto Supabase** dedicado (recomendado: região `sa-east-1`, São Paulo).

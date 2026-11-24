@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel da Clínica | Clínica Flamboyant</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#40381B">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/area.css">
+</head>
+<body>
+<div class="area">
+  <header class="area-topo">
+    <div class="wrap area-topo__inner">
+      <a href="/admin/" aria-label="Painel da Clínica"><img src="/assets/img/marca/logo-horizontal.png" alt="Clínica Flamboyant" width="295" height="84"></a>
+      <div class="area-topo__dir oculto" id="topo-logado">
+        <span id="topo-nome"></span>
+        <button class="btn-link" type="button" id="btn-sair">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="area-main">
+    <!-- LOGIN ADMIN -->
+    <section class="acesso oculto" id="tela-login">
+      <img class="acesso__flor" src="/assets/img/marca/flor-terra.svg" alt="" aria-hidden="true">
+      <h1>Painel da Clínica</h1>
+      <p>Acesso restrito à equipe da Clínica Flamboyant.</p>
+      <div class="aviso aviso--erro oculto" id="login-erro" role="alert"></div>
+      <form id="form-login" novalidate>
+        <div class="campo"><label for="adm-email">E-mail</label><input id="adm-email" type="email" autocomplete="username" required></div>
+        <div class="campo">
+          <label for="adm-senha">Senha</label>
+          <div class="senha-wrap">
+            <input id="adm-senha" type="password" autocomplete="current-password" required>
+            <button type="button" data-ver-senha="adm-senha" aria-label="Mostrar senha"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+          </div>
+        </div>
+        <button class="btn btn--primario" type="submit" id="btn-entrar">Entrar</button>
+      </form>
+    </section>
+
+    <!-- PAINEL -->
+    <section class="adm oculto" id="tela-painel">
+      <div class="adm-abas" role="tablist">
+        <button class="aba is-ativa" type="button" data-aba="pacientes" role="tab" aria-selected="true">Pacientes</button>
+        <button class="aba" type="button" data-aba="procedimentos" role="tab" aria-selected="false">Procedimentos e vídeos</button>
+      </div>
+
+      <!-- Pacientes -->
+      <div id="aba-pacientes">
+        <div class="adm-barra">
+          <h2>Pacientes</h2>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <input type="search" id="busca" placeholder="Buscar por nome ou CPF" aria-label="Buscar paciente">
+            <button class="btn btn--primario btn-p" type="button" id="btn-novo-paciente">+ Novo paciente</button>
+          </div>
+        </div>
+        <div class="tabela-wrap">
+          <table class="tabela">
+            <thead><tr><th>Paciente</th><th>Procedimento</th><th>Vídeos assistidos</th><th>Último acesso</th><th>Status</th><th>Ações</th></tr></thead>
+            <tbody id="tbody-pacientes"><tr><td colspan="6">Carregando…</td></tr></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Procedimentos -->
+      <div id="aba-procedimentos" class="oculto">
+        <div class="adm-barra">
+          <h2>Procedimentos e vídeos</h2>
+          <button class="btn btn--primario btn-p" type="button" id="btn-novo-proc">+ Novo procedimento</button>
+        </div>
+        <p class="dica">Cada procedimento tem os seus vídeos de pré, trans e pós-operatório. O paciente vinculado a um procedimento vê automaticamente todos os vídeos dele.</p>
+        <div class="procs-adm">
+          <div class="procs-lista" id="procs-lista"></div>
+          <div id="proc-detalhe"><div class="vazio">Crie ou selecione um procedimento.</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="area-rodape">Painel interno · Clínica Flamboyant · Dados de pacientes protegidos pela LGPD</footer>
+</div>
+
+<!-- MODAL GENÉRICO -->
+<div class="modal oculto" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+  <div class="modal__caixa" id="modal-caixa"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="/assets/js/supabase-config.js"></script>
+<script src="/assets/js/area-comum.js"></script>
+<script src="/assets/js/admin.js"></script>
+</body>
+</html>
